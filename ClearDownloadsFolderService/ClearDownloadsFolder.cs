@@ -31,10 +31,16 @@ namespace ClearDownloadsFolderService
         {
             DirectoryInfo folderWithFilesToBeDeleted = new DirectoryInfo(folderPath);
 
-            // Delete all files at that directory
+            // Delete all files at that directory 
+            // that are older that 1 month
             foreach(FileInfo file in folderWithFilesToBeDeleted.GetFiles())
             {
-                file.Delete();
+                var creationTime = file.CreationTime;
+
+                if(creationTime < (DateTime.Now - new TimeSpan(30, 0, 0, 0)))
+                {
+                    file.Delete();
+                }
             }
         }
 
