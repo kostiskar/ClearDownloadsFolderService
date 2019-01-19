@@ -28,7 +28,7 @@ namespace ClearDownloadsFolderService
 
                 // Configure the description
                 x.SetDisplayName("This is a service that clears the Downloads folder" +
-                                 "every 1 minute");
+                                 "every 5 days");
             });
 
             // Convert from enum to integer and passing it out
